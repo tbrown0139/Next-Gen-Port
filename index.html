@@ -4,72 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trevor Brown | Digital Marketer & Developer</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- GSAP Animation Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  
+  <style>
+    body {
+      background: linear-gradient(to right, #f5f5f7, #e5e5e7);
+      margin: 0;
+      font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      overflow: hidden;
+    }
+    
+    .glass {
+      backdrop-filter: blur(12px) saturate(180%);
+      background-color: rgba(255, 255, 255, 0.75);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+  </style>
 </head>
 <body>
-  <!-- Particle Background -->
-  <div id="particles-js"></div>
-
   <!-- Hero Section -->
-  <div class="hero">
-    <h1>Trevor Brown <span>👋</span></h1>
-    <p>Digital Marketer 💼 | Web & Mobile Developer 📱 | Smart Home Enthusiast 🏠</p>
-    <div class="button-group">
-      <button onclick="showPanel('about')">About Me 👤</button>
-      <button onclick="showPanel('projects')">Projects 🚀</button>
-      <button onclick="showPanel('contact')">Contact ✉️</button>
+  <section class="h-screen flex items-center justify-center flex-col text-center">
+    <div class="glass p-10 max-w-lg">
+      <h1 class="text-5xl font-semibold mb-4">Trevor Brown 👋</h1>
+      <p class="text-xl text-gray-700">Digital Marketer 💼 | Web & Mobile Developer 📱 | Smart Home Enthusiast 🏠</p>
+      <div class="mt-6 space-x-4">
+        <button class="btn" data-section="about">About Me 👤</button>
+        <button class="btn" data-section="projects">Projects 🚀</button>
+        <button class="btn" data-section="contact">Contact ✉️</button>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Panels -->
-  <div id="about" class="panel hidden">
-    <h2>About Me 👋</h2>
-    <p>Hi, I'm Trevor! I specialize in digital marketing and love building web and mobile apps.</p>
-  </div>
+  <!-- Interactive Panels -->
+  <section id="about" class="panel hidden glass fixed inset-0 flex items-center justify-center">
+    <div class="text-center">
+      <h2 class="text-4xl font-semibold mb-2">About Me 👋</h2>
+      <p>I’m a digital marketing expert with experience in building web and mobile apps using HTML, PHP, Swift, and more.</p>
+    </div>
+  </section>
 
-  <div id="projects" class="panel hidden">
-    <h2>Projects 🚀</h2>
-    <p>Some projects I’m proud of include: website redesigns, mobile app launches, and smart home setups.</p>
-  </div>
+  <section id="projects" class="panel hidden glass fixed inset-0 flex items-center justify-center">
+    <div class="text-center">
+      <h2 class="text-4xl font-semibold mb-2">Projects 🚀</h2>
+      <p>I’ve worked on website redesigns, smart home systems, and mobile app launches.</p>
+    </div>
+  </section>
 
-  <div id="contact" class="panel hidden">
-    <h2>Contact Me ✉️</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit">Send 🚀</button>
-    </form>
-  </div>
+  <section id="contact" class="panel hidden glass fixed inset-0 flex items-center justify-center">
+    <div class="text-center">
+      <h2 class="text-4xl font-semibold mb-2">Contact Me ✉️</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="block w-full p-2 rounded-md border" />
+        <input type="email" placeholder="Your Email" class="block w-full p-2 rounded-md border" />
+        <textarea placeholder="Your Message" class="block w-full p-2 rounded-md border"></textarea>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Send 🚀</button>
+      </form>
+    </div>
+  </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>Made with ❤️ by Trevor Brown | <a href="#">LinkedIn 🌐</a></p>
+  <footer class="fixed bottom-5 w-full text-center text-gray-500">
+    <p>Made with ❤️ by Trevor Brown | <a href="#" class="underline">LinkedIn 🌐</a></p>
   </footer>
 
   <script>
-    // GSAP Animation for Panels
-    function showPanel(panelId) {
-      document.querySelectorAll('.panel').forEach(panel => panel.classList.add('hidden'));
-      const panel = document.getElementById(panelId);
-      panel.classList.remove('hidden');
-      gsap.from(panel, { y: -100, opacity: 0, duration: 0.6 });
-    }
-
-    // Particles.js Configuration
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: '#ffffff' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: true },
-        size: { value: 5, random: true },
-        line_linked: { enable: false },
-        move: { enable: true, speed: 1, direction: 'none', random: true, out_mode: 'out' }
-      }
+    // Panel Interactions with GSAP
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const targetSection = button.getAttribute('data-section');
+        showPanel(targetSection);
+      });
     });
+
+    function showPanel(id) {
+      document.querySelectorAll('.panel').forEach(panel => panel.classList.add('hidden'));
+      const panel = document.getElementById(id);
+      panel.classList.remove('hidden');
+      gsap.from(panel, { scale: 0.8, opacity: 0, duration: 0.5, ease: 'power2.out' });
+    }
   </script>
 </body>
 </html>
