@@ -1,98 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trevor Brown | Digital Marketer & Developer</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <!-- Critical CSS -->
   <style>
-    body {
-      scroll-behavior: smooth;
-      background: #0d1117;
-      color: #c9d1d9;
-      font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    :root {
+      --primary-bg: #0d1117;
+      --secondary-bg: #161b22;
+      --text-color: #c9d1d9;
+      --link-color: #58a6ff;
+      --link-hover: #1f6feb;
     }
 
-    h1, h2, h3 {
+    body {
+      margin: 0;
+      background: var(--primary-bg);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
       letter-spacing: -1px;
+      margin-bottom: 0.75rem;
     }
 
     a {
-      color: #58a6ff;
+      color: var(--link-color);
       transition: color 0.3s;
     }
 
     a:hover {
-      color: #1f6feb;
+      color: var(--link-hover);
     }
 
     section {
       padding: 8rem 1rem;
+      text-align: center;
     }
 
-    ::selection {
-      background-color: #1f6feb;
-      color: #ffffff;
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .links a {
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #8b949e;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 6rem;
+      }
+      h2 {
+        font-size: 4rem;
+      }
     }
   </style>
+
+  <!-- Meta for SEO, Web App, and Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trevor Brown | Digital Marketer & Developer">
+  <meta name="twitter:description" content="Explore Trevor's work in marketing, web, and mobile development.">
+  <meta name="twitter:image" content="https://example.com/trevor-banner.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="https://example.com/icon.png">
+  <meta name="theme-color" content="#0d1117">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Lazy Load Polyfill -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll('img[loading="lazy"]');
+      images.forEach(img => {
+        img.addEventListener('load', () => img.classList.add('loaded'));
+      });
+    });
+  </script>
 </head>
-<body class="overflow-x-hidden">
+
+<body>
 
   <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center">
-    <h1 class="text-6xl md:text-8xl font-bold mb-4">Trevor Brown</h1>
-    <p class="text-2xl md:text-3xl font-light mb-8">
-      Digital Marketer 💼 | Developer 📱 | Smart Home Enthusiast 🏠
-    </p>
-    <a href="#about" class="text-xl underline hover:no-underline">
-      See What I Do ↓
-    </a>
+  <section class="hero">
+    <h1>Trevor Brown</h1>
+    <p>Digital Marketer 💼 | Developer 📱 | Smart Home Enthusiast 🏠</p>
+    <a href="#about">Learn More ↓</a>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="bg-[#161b22] text-center">
-    <h2 class="text-5xl font-bold mb-4">About Me</h2>
-    <p class="text-xl max-w-3xl mx-auto leading-relaxed">
-      I’m Trevor Brown, a digital marketer and developer with a passion for building apps and automating smart homes. 
-      My expertise spans web development (HTML, JavaScript, PHP) and mobile technologies (Swift, Objective-C).
-      Whether it's crafting smooth user experiences or launching data-driven marketing campaigns, I bring creativity and precision to every project.
+  <section id="about" style="background-color: var(--secondary-bg);">
+    <h2>About Me</h2>
+    <p>
+      I’m Trevor Brown, a digital marketer and developer with expertise in web and mobile technologies.
+      I love building seamless user experiences and automating smart homes.
     </p>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="bg-[#0d1117] text-center text-white">
-    <h2 class="text-5xl font-bold mb-4">My Work</h2>
-    <div class="max-w-4xl mx-auto">
-      <p class="text-xl mb-8 leading-relaxed">
-        I’ve redesigned websites, launched apps, and built smart home automation systems. Below are some of the things I’ve created:
-      </p>
-      <ul class="text-left text-xl leading-loose">
-        <li>⚡ Built a Smart Home Automation System using HomeKit</li>
-        <li>🛠 Developed and published multiple mobile apps in Swift and JavaScript</li>
-        <li>📊 Launched data-driven marketing campaigns with 20% ROI growth</li>
-      </ul>
-    </div>
+  <section id="projects">
+    <h2>My Work</h2>
+    <p>Here are some of my favorite projects:</p>
+    <ul>
+      <li>⚡ Built a smart home system with Apple HomeKit</li>
+      <li>🛠 Developed cross-platform apps with Swift & JavaScript</li>
+      <li>📊 Launched marketing campaigns with 20% ROI growth</li>
+    </ul>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="bg-[#161b22] text-center">
-    <h2 class="text-5xl font-bold mb-4">Get in Touch</h2>
-    <p class="text-xl mb-6">
-      Let’s connect! Whether it’s a new project or just to say hi.
-    </p>
-    <div class="space-x-8">
-      <a href="mailto:trevor@example.com" class="text-xl underline hover:no-underline">Email Me ✉️</a>
-      <a href="https://linkedin.com" target="_blank" class="text-xl underline hover:no-underline">LinkedIn 🌐</a>
-      <a href="https://github.com" target="_blank" class="text-xl underline hover:no-underline">GitHub 🔗</a>
+  <section id="contact" style="background-color: var(--secondary-bg);">
+    <h2>Get in Touch</h2>
+    <p>I'd love to hear from you. Let’s connect!</p>
+    <div class="links">
+      <a href="mailto:trevor@example.com">Email ✉️</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn 🌐</a>
+      <a href="https://github.com" target="_blank">GitHub 🔗</a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 text-gray-500">
-    <p>© 2024 Trevor Brown. Made with ❤️ and Coffee ☕.</p>
+  <footer>
+    <p>© 2024 Trevor Brown. Made with ❤️ and ☕.</p>
   </footer>
+
 </body>
 </html>
