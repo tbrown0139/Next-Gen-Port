@@ -1,1 +1,54 @@
 Hello Greate world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trevor Brown | Digital Marketer & Developer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+  <div class="hero">
+    <h1>Trevor Brown</h1>
+    <p>Digital Marketing Expert | Web & Mobile Developer | Smart Home Enthusiast</p>
+    <div class="button-group">
+      <button onclick="showPanel('about')">About Me</button>
+      <button onclick="showPanel('projects')">Projects</button>
+      <button onclick="showPanel('contact')">Contact</button>
+    </div>
+  </div>
+
+  <!-- Interactive Panels -->
+  <div id="about" class="panel hidden">
+    <h2>About Me</h2>
+    <p>I’m a digital marketer and web/mobile developer...</p>
+  </div>
+
+  <div id="projects" class="panel hidden">
+    <h2>Projects</h2>
+    <p>Some of my notable projects include...</p>
+  </div>
+
+  <div id="contact" class="panel hidden">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2024 Trevor Brown | <a href="https://linkedin.com/in/trevor">LinkedIn</a></p>
+  </footer>
+
+  <script>
+    function showPanel(panelId) {
+      document.querySelectorAll('.panel').forEach(panel => panel.classList.add('hidden'));
+      document.getElementById(panelId).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
