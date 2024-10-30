@@ -8,53 +8,87 @@
   <!-- Meta Tags for SEO & Web App -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Trevor Brown | Digital Marketer & Developer">
-  <meta name="twitter:description" content="Hi, I'm Trevor Brown! Digital marketing expert, web and mobile developer, AI and machine learning enthusiast.">
+  <meta name="twitter:description" content="Trevor Brown - Digital Marketing expert, Web Developer, Mobile Developer, AI and Machine Learning Enthusiast.">
   <meta name="twitter:image" content="https://undraw.co/illustration/image-placeholder.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="https://example.com/icon.png">
   <meta name="theme-color" content="#0d1117">
 
-  <!-- Tailwind CSS for Styling -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body {
-      background: #f0f4f8;
+      background: #f5f7fa;
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       scroll-behavior: smooth;
     }
 
-    .typing {
-      border-right: 2px solid #1f2937;
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .skills {
+      display: inline-block;
       white-space: nowrap;
       overflow: hidden;
-      width: 0;
-      animation: typing 3.5s steps(30, end) forwards, blink 0.7s infinite;
+      font-weight: bold;
+      animation: slide 8s linear infinite;
     }
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+    @keyframes slide {
+      0% { transform: translateY(0); }
+      20% { transform: translateY(-40px); }
+      40% { transform: translateY(-80px); }
+      60% { transform: translateY(-120px); }
+      80% { transform: translateY(-160px); }
+      100% { transform: translateY(0); }
     }
 
-    @keyframes blink {
-      50% { border-color: transparent; }
+    .avatar img {
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- Hero Section -->
-  <section class="h-screen flex items-center justify-center px-6">
-    <div class="flex flex-col md:flex-row items-center space-x-8">
+  <section class="hero">
+    <div class="flex hero-content items-center space-x-10">
       <!-- Text Section -->
-      <div class="text-center md:text-left">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Hi, I'm Trevor Brown 👋</h1>
-        <p class="text-xl md:text-2xl font-light">
-          <span class="typing">Digital Marketing Expert, Web Developer, Mobile Developer, AI Expert, Machine Learning Developer</span>
+      <div>
+        <h1 class="text-5xl font-extrabold mb-2">Hi, I'm Trevor Brown 👋</h1>
+        <p class="text-2xl">I am into 
+          <span class="skills">
+            <span>Digital Marketing 💼</span>
+            <span>Web Development 🌐</span>
+            <span>Mobile Development 📱</span>
+            <span>AI Expertise 🤖</span>
+            <span>Machine Learning 💡</span>
+          </span>
         </p>
+
+        <!-- Social Links -->
         <div class="mt-6">
           <a href="https://linkedin.com" target="_blank" class="mx-2">
             <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="40">
@@ -72,8 +106,8 @@
       </div>
 
       <!-- Image Section -->
-      <div class="mt-8 md:mt-0">
-        <img src="https://undraw.co/illustration/image-placeholder.png" alt="Trevor's Avatar" class="w-64 h-64 rounded-full shadow-lg">
+      <div class="avatar">
+        <img src="https://undraw.co/illustration/image-placeholder.png" alt="Trevor's Avatar" class="w-64 h-64">
       </div>
     </div>
   </section>
@@ -81,26 +115,6 @@
   <footer class="text-center py-4">
     <p class="text-gray-500">© 2024 Trevor Brown. Made with ❤️ and ☕.</p>
   </footer>
-
-  <script>
-    // Typing Animation Initialization
-    document.addEventListener('DOMContentLoaded', () => {
-      const typingElement = document.querySelector('.typing');
-      const text = typingElement.textContent;
-      typingElement.textContent = ''; // Clear initial content
-      let i = 0;
-
-      const type = () => {
-        if (i < text.length) {
-          typingElement.textContent += text.charAt(i);
-          i++;
-          setTimeout(type, 100); // Typing speed
-        }
-      };
-
-      type();
-    });
-  </script>
 
 </body>
 </html>
