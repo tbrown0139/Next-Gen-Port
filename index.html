@@ -3,91 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trevor Brown | Digital Marketer & Developer</title>
+  <title>Trevor Brown | Profile</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- GSAP Animation Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  
+
   <style>
     body {
-      background: linear-gradient(to right, #f5f5f7, #e5e5e7);
-      margin: 0;
-      font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      overflow: hidden;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    
+
     .glass {
-      backdrop-filter: blur(12px) saturate(180%);
-      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px) saturate(180%);
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 16px;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    a {
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #1d4ed8;
     }
   </style>
 </head>
-<body>
+<body class="text-gray-800">
+
   <!-- Hero Section -->
-  <section class="h-screen flex items-center justify-center flex-col text-center">
-    <div class="glass p-10 max-w-lg">
-      <h1 class="text-5xl font-semibold mb-4">Trevor Brown 👋</h1>
-      <p class="text-xl text-gray-700">Digital Marketer 💼 | Web & Mobile Developer 📱 | Smart Home Enthusiast 🏠</p>
-      <div class="mt-6 space-x-4">
-        <button class="btn" data-section="about">About Me 👤</button>
-        <button class="btn" data-section="projects">Projects 🚀</button>
-        <button class="btn" data-section="contact">Contact ✉️</button>
+  <section class="h-screen flex items-center justify-center">
+    <div class="glass p-10 text-center max-w-md">
+      <h1 class="text-5xl font-bold mb-2">Trevor Brown 👋</h1>
+      <p class="text-lg mb-6">Digital Marketer 💼 | Developer 📱 | Smart Home Enthusiast 🏠</p>
+      <a href="#about" class="underline text-blue-500 text-lg">Learn more about me</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="min-h-screen flex items-center justify-center p-10">
+    <div class="text-center max-w-lg">
+      <h2 class="text-4xl font-semibold mb-4">About Me 👤</h2>
+      <p class="text-lg mb-6">
+        I’m Trevor Brown, a digital marketer and developer who loves building apps and automating smart homes. I specialize in creating seamless web and mobile experiences.
+      </p>
+      <div class="space-x-4">
+        <a href="https://linkedin.com" target="_blank" class="text-blue-500 underline">LinkedIn 🌐</a>
+        <a href="https://github.com" target="_blank" class="text-blue-500 underline">GitHub 🔗</a>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Panels -->
-  <section id="about" class="panel hidden glass fixed inset-0 flex items-center justify-center">
-    <div class="text-center">
-      <h2 class="text-4xl font-semibold mb-2">About Me 👋</h2>
-      <p>I’m a digital marketing expert with experience in building web and mobile apps using HTML, PHP, Swift, and more.</p>
+  <!-- Projects Section -->
+  <section id="projects" class="min-h-screen flex items-center justify-center p-10 bg-gray-50">
+    <div class="text-center max-w-lg">
+      <h2 class="text-4xl font-semibold mb-4">Projects 🚀</h2>
+      <p class="text-lg mb-6">Here are some of the things I've built:</p>
+      <ul class="list-disc list-inside text-left">
+        <li>Redesigned websites for startups and non-profits.</li>
+        <li>Built mobile apps using Swift and JavaScript.</li>
+        <li>Set up smart home automation systems.</li>
+      </ul>
     </div>
   </section>
 
-  <section id="projects" class="panel hidden glass fixed inset-0 flex items-center justify-center">
-    <div class="text-center">
-      <h2 class="text-4xl font-semibold mb-2">Projects 🚀</h2>
-      <p>I’ve worked on website redesigns, smart home systems, and mobile app launches.</p>
-    </div>
-  </section>
-
-  <section id="contact" class="panel hidden glass fixed inset-0 flex items-center justify-center">
-    <div class="text-center">
-      <h2 class="text-4xl font-semibold mb-2">Contact Me ✉️</h2>
+  <!-- Contact Section -->
+  <section id="contact" class="min-h-screen flex items-center justify-center p-10">
+    <div class="text-center max-w-md glass p-8">
+      <h2 class="text-4xl font-semibold mb-4">Get in Touch ✉️</h2>
       <form class="space-y-4">
-        <input type="text" placeholder="Your Name" class="block w-full p-2 rounded-md border" />
-        <input type="email" placeholder="Your Email" class="block w-full p-2 rounded-md border" />
-        <textarea placeholder="Your Message" class="block w-full p-2 rounded-md border"></textarea>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Send 🚀</button>
+        <input type="text" placeholder="Your Name" class="block w-full p-3 rounded-md border" required />
+        <input type="email" placeholder="Your Email" class="block w-full p-3 rounded-md border" required />
+        <textarea placeholder="Your Message" class="block w-full p-3 rounded-md border"></textarea>
+        <button type="submit" class="bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-blue-600 w-full">
+          Send 🚀
+        </button>
       </form>
     </div>
   </section>
 
-  <footer class="fixed bottom-5 w-full text-center text-gray-500">
-    <p>Made with ❤️ by Trevor Brown | <a href="#" class="underline">LinkedIn 🌐</a></p>
+  <footer class="text-center py-4">
+    <p>© 2024 Trevor Brown | Made with ❤️</p>
   </footer>
 
-  <script>
-    // Panel Interactions with GSAP
-    document.querySelectorAll('.btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const targetSection = button.getAttribute('data-section');
-        showPanel(targetSection);
-      });
-    });
-
-    function showPanel(id) {
-      document.querySelectorAll('.panel').forEach(panel => panel.classList.add('hidden'));
-      const panel = document.getElementById(id);
-      panel.classList.remove('hidden');
-      gsap.from(panel, { scale: 0.8, opacity: 0, duration: 0.5, ease: 'power2.out' });
-    }
-  </script>
 </body>
 </html>
