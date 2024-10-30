@@ -3,92 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trevor Brown | Profile</title>
+  <title>Trevor Brown | Digital Marketer & Developer</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body {
-      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-      font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-      overflow-x: hidden;
       scroll-behavior: smooth;
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
     }
 
-    .glass {
-      backdrop-filter: blur(10px) saturate(180%);
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+    h1, h2, h3 {
+      letter-spacing: -1px;
     }
 
     a {
+      color: #58a6ff;
       transition: color 0.3s;
     }
 
     a:hover {
-      color: #1d4ed8;
+      color: #1f6feb;
+    }
+
+    section {
+      padding: 8rem 1rem;
+    }
+
+    ::selection {
+      background-color: #1f6feb;
+      color: #ffffff;
     }
   </style>
 </head>
-<body class="text-gray-800">
+<body class="overflow-x-hidden">
 
   <!-- Hero Section -->
-  <section class="h-screen flex items-center justify-center">
-    <div class="glass p-10 text-center max-w-md">
-      <h1 class="text-5xl font-bold mb-2">Trevor Brown 👋</h1>
-      <p class="text-lg mb-6">Digital Marketer 💼 | Developer 📱 | Smart Home Enthusiast 🏠</p>
-      <a href="#about" class="underline text-blue-500 text-lg">Learn more about me</a>
-    </div>
+  <section class="min-h-screen flex flex-col justify-center items-center text-center">
+    <h1 class="text-6xl md:text-8xl font-bold mb-4">Trevor Brown</h1>
+    <p class="text-2xl md:text-3xl font-light mb-8">
+      Digital Marketer 💼 | Developer 📱 | Smart Home Enthusiast 🏠
+    </p>
+    <a href="#about" class="text-xl underline hover:no-underline">
+      See What I Do ↓
+    </a>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="min-h-screen flex items-center justify-center p-10">
-    <div class="text-center max-w-lg">
-      <h2 class="text-4xl font-semibold mb-4">About Me 👤</h2>
-      <p class="text-lg mb-6">
-        I’m Trevor Brown, a digital marketer and developer who loves building apps and automating smart homes. I specialize in creating seamless web and mobile experiences.
-      </p>
-      <div class="space-x-4">
-        <a href="https://linkedin.com" target="_blank" class="text-blue-500 underline">LinkedIn 🌐</a>
-        <a href="https://github.com" target="_blank" class="text-blue-500 underline">GitHub 🔗</a>
-      </div>
-    </div>
+  <section id="about" class="bg-[#161b22] text-center">
+    <h2 class="text-5xl font-bold mb-4">About Me</h2>
+    <p class="text-xl max-w-3xl mx-auto leading-relaxed">
+      I’m Trevor Brown, a digital marketer and developer with a passion for building apps and automating smart homes. 
+      My expertise spans web development (HTML, JavaScript, PHP) and mobile technologies (Swift, Objective-C).
+      Whether it's crafting smooth user experiences or launching data-driven marketing campaigns, I bring creativity and precision to every project.
+    </p>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="min-h-screen flex items-center justify-center p-10 bg-gray-50">
-    <div class="text-center max-w-lg">
-      <h2 class="text-4xl font-semibold mb-4">Projects 🚀</h2>
-      <p class="text-lg mb-6">Here are some of the things I've built:</p>
-      <ul class="list-disc list-inside text-left">
-        <li>Redesigned websites for startups and non-profits.</li>
-        <li>Built mobile apps using Swift and JavaScript.</li>
-        <li>Set up smart home automation systems.</li>
+  <section id="projects" class="bg-[#0d1117] text-center text-white">
+    <h2 class="text-5xl font-bold mb-4">My Work</h2>
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xl mb-8 leading-relaxed">
+        I’ve redesigned websites, launched apps, and built smart home automation systems. Below are some of the things I’ve created:
+      </p>
+      <ul class="text-left text-xl leading-loose">
+        <li>⚡ Built a Smart Home Automation System using HomeKit</li>
+        <li>🛠 Developed and published multiple mobile apps in Swift and JavaScript</li>
+        <li>📊 Launched data-driven marketing campaigns with 20% ROI growth</li>
       </ul>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="min-h-screen flex items-center justify-center p-10">
-    <div class="text-center max-w-md glass p-8">
-      <h2 class="text-4xl font-semibold mb-4">Get in Touch ✉️</h2>
-      <form class="space-y-4">
-        <input type="text" placeholder="Your Name" class="block w-full p-3 rounded-md border" required />
-        <input type="email" placeholder="Your Email" class="block w-full p-3 rounded-md border" required />
-        <textarea placeholder="Your Message" class="block w-full p-3 rounded-md border"></textarea>
-        <button type="submit" class="bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-blue-600 w-full">
-          Send 🚀
-        </button>
-      </form>
+  <section id="contact" class="bg-[#161b22] text-center">
+    <h2 class="text-5xl font-bold mb-4">Get in Touch</h2>
+    <p class="text-xl mb-6">
+      Let’s connect! Whether it’s a new project or just to say hi.
+    </p>
+    <div class="space-x-8">
+      <a href="mailto:trevor@example.com" class="text-xl underline hover:no-underline">Email Me ✉️</a>
+      <a href="https://linkedin.com" target="_blank" class="text-xl underline hover:no-underline">LinkedIn 🌐</a>
+      <a href="https://github.com" target="_blank" class="text-xl underline hover:no-underline">GitHub 🔗</a>
     </div>
   </section>
 
-  <footer class="text-center py-4">
-    <p>© 2024 Trevor Brown | Made with ❤️</p>
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-500">
+    <p>© 2024 Trevor Brown. Made with ❤️ and Coffee ☕.</p>
   </footer>
-
 </body>
 </html>
