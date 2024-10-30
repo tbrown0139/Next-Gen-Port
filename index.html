@@ -10,6 +10,7 @@
   <meta name="twitter:title" content="Trevor Brown | Digital Marketer & Developer">
   <meta name="twitter:description" content="Trevor Brown's portfolio - showcasing digital marketing, web development, and AI expertise.">
   <meta name="twitter:image" content="https://undraw.co/illustration/image-placeholder.png">
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="https://example.com/icon.png">
@@ -25,10 +26,10 @@
     body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
       background: #0d1117;
       color: #ffffff;
       font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
@@ -39,41 +40,52 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      position: relative;
+      gap: 1rem;
     }
 
-    .hero h1 {
-      font-size: 4rem;
-      font-weight: 800;
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 100;
+    }
+
+    .overlay-content {
+      max-width: 600px;
+      padding: 2rem;
+      color: #ffffff;
+    }
+
+    .overlay h2 {
+      font-size: 3rem;
       margin-bottom: 1rem;
     }
 
-    .hero p {
-      font-size: 1.5rem;
-      font-weight: 300;
-      margin-bottom: 2rem;
-      color: #c9d1d9;
+    .overlay p {
+      font-size: 1.25rem;
+      line-height: 1.6;
     }
 
-    .links a {
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s;
+    .btn {
+      padding: 0.75rem 2rem;
+      background-color: #1f6feb;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    .links a:hover {
-      color: #1f6feb;
-    }
-
-    .scroll-icon {
-      position: absolute;
-      bottom: 10px;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .btn:hover {
+      background-color: #3c82f6;
     }
 
     @media (min-width: 768px) {
@@ -90,60 +102,41 @@
 <body>
 
   <!-- Hero Section -->
-  <section class="hero" id="home">
+  <section class="hero">
     <h1>Hi, I'm Trevor Brown 👋</h1>
     <p>A Digital Marketer, Web Developer, and AI Enthusiast.</p>
 
-    <!-- Social Media Links -->
-    <div class="links">
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-      <a href="https://github.com" target="_blank">GitHub</a>
-      <a href="https://twitter.com" target="_blank">Twitter</a>
-      <a href="https://instagram.com" target="_blank">Instagram</a>
-    </div>
-
-    <!-- Scroll Icon -->
-    <div class="scroll-icon">
-      <img src="https://cdn-icons-png.flaticon.com/512/271/271210.png" alt="Scroll down" width="30">
+    <!-- Action Buttons -->
+    <div class="flex space-x-4">
+      <button class="btn" onclick="openOverlay('about')">About Me</button>
+      <button class="btn" onclick="openOverlay('projects')">Projects</button>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="h-screen flex items-center justify-center bg-gray-900 text-center px-6" id="about">
-    <div>
-      <h2 class="text-5xl font-bold mb-4">About Me</h2>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        I'm a professional with a passion for digital marketing, building seamless web and mobile apps, 
-        and exploring the possibilities of AI and machine learning. I enjoy solving problems with modern technology 
-        and bringing new ideas to life through software.
+  <!-- About Overlay -->
+  <div id="about" class="overlay">
+    <div class="overlay-content">
+      <h2>About Me</h2>
+      <p>
+        I’m a digital marketing expert and developer with experience building seamless web and mobile experiences.
+        I specialize in automation, AI, and innovative technologies to create unique solutions that make a difference.
       </p>
+      <button class="btn mt-4" onclick="closeOverlay('about')">Close</button>
     </div>
-  </section>
+  </div>
 
-  <!-- Projects Section -->
-  <section class="h-screen flex items-center justify-center bg-gray-800 text-center px-6" id="projects">
-    <div>
-      <h2 class="text-5xl font-bold mb-4">Projects</h2>
-      <p class="text-xl text-gray-300 mb-8">Some things I've built:</p>
-      <ul class="list-none space-y-4">
-        <li>⚡ Automated Smart Home System with Apple HomeKit.</li>
-        <li>🛠 Developed cross-platform apps in Swift and JavaScript.</li>
-        <li>📊 Led data-driven campaigns with 20% ROI growth.</li>
-      </ul>
+  <!-- Projects Overlay -->
+  <div id="projects" class="overlay">
+    <div class="overlay-content">
+      <h2>Projects</h2>
+      <p>
+        ⚡ Built a smart home system using Apple HomeKit.<br>
+        🛠 Developed mobile apps using Swift and JavaScript.<br>
+        📊 Led campaigns with data-driven ROI growth of over 20%.
+      </p>
+      <button class="btn mt-4" onclick="closeOverlay('projects')">Close</button>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="h-screen flex items-center justify-center bg-gray-900 text-center px-6" id="contact">
-    <div>
-      <h2 class="text-5xl font-bold mb-4">Get In Touch</h2>
-      <p class="text-xl text-gray-300 mb-8">I'd love to connect. Reach out via email or socials!</p>
-      <div class="links">
-        <a href="mailto:trevor@example.com" target="_blank">Email</a>
-        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- Footer -->
   <footer class="text-center py-4 text-gray-500">
@@ -151,20 +144,18 @@
   </footer>
 
   <script>
-    // Smooth Scroll on Click
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+    // Open Overlay Function
+    function openOverlay(id) {
+      const overlay = document.getElementById(id);
+      overlay.style.display = 'flex';
+      gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    }
 
-    // GSAP Animation for Hero Section
-    gsap.from(".hero h1", { opacity: 0, y: -50, duration: 1.5 });
-    gsap.from(".hero p", { opacity: 0, y: 50, delay: 0.5, duration: 1.5 });
-    gsap.from(".links a", { opacity: 0, scale: 0.5, stagger: 0.3, delay: 1, duration: 1 });
+    // Close Overlay Function
+    function closeOverlay(id) {
+      const overlay = document.getElementById(id);
+      gsap.to(overlay, { opacity: 0, duration: 0.5, onComplete: () => overlay.style.display = 'none' });
+    }
   </script>
 
 </body>
