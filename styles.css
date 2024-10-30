@@ -1,59 +1,71 @@
+/* Reset */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f8f9fa;
   overflow: hidden;
 }
 
+/* Hero Section */
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(to right, #4facfe, #00f2fe);
+  background: linear-gradient(to right, #00c9ff, #92fe9d);
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-bottom: 0.5rem;
 }
 
 .hero p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 2rem;
 }
 
 .button-group button {
-  margin: 0 10px;
-  padding: 10px 20px;
+  margin: 0 8px;
+  padding: 12px 24px;
   font-size: 1rem;
   cursor: pointer;
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  transition: transform 0.2s ease;
 }
 
+.button-group button:hover {
+  transform: scale(1.1);
+}
+
+/* Panels */
 .panel {
   position: fixed;
-  top: 20%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
-  max-width: 500px;
+  max-width: 400px;
   background: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
-  border-radius: 8px;
 }
 
 .panel.hidden {
   display: none;
 }
 
+/* Footer */
 footer {
   position: fixed;
   bottom: 10px;
   width: 100%;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
